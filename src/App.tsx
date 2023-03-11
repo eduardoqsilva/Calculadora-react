@@ -1,5 +1,6 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { ThemeProvider } from "styled-components"
+import { Button } from "./components/Button"
 import { CalculatorScreen } from "./components/CalculatorScreen"
 import { Header } from "./components/Header"
 import { HeaderThemeSwith } from "./components/ThemeSwitch"
@@ -11,7 +12,17 @@ import { dark } from "./styles/themes/darkTheme"
 function App() {
 
   const [theme, setTheme] = useState<number>(0)
+  const [expression, setExpression] = useState('')
+
   const updateTheme = () => theme < 2 ? setTheme(prev => prev +1) : setTheme(0);
+
+  function handleButtonClick(value:string) {
+    setExpression((prev) => prev + value)
+  }
+
+  useEffect(() => {
+    console.log(expression)
+  }, [expression])
 
   return (
     <ThemeProvider theme={dark}>
@@ -22,7 +33,7 @@ function App() {
             updateTheme={updateTheme}
           />
           <CalculatorScreen text={'399981,96'}/>
-
+          <Button click={handleButtonClick} text="5"/>
         </Wrapper>
       </Header>
     </ThemeProvider>
