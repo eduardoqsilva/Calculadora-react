@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { ThemeProvider } from "styled-components"
+import { CalculatorScreen } from "./components/CalculatorScreen"
 import { Header } from "./components/Header"
 import { HeaderThemeSwith } from "./components/ThemeSwitch"
 import { Wrapper } from "./components/Wrapper"
@@ -20,6 +21,8 @@ function App() {
             theme={theme}
             updateTheme={updateTheme}
           />
+          <CalculatorScreen text={'399981,96'}/>
+
         </Wrapper>
       </Header>
     </ThemeProvider>
