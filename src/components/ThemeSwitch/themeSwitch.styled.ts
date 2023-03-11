@@ -1,6 +1,10 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const WrapperThemeStyled = styled.div`
+interface WrapperThemeStyledType {
+  themes: number
+}
+
+export const WrapperThemeStyled = styled.div<WrapperThemeStyledType>`
   width: 100%;
   height: 100%;
 
@@ -49,9 +53,23 @@ export const WrapperThemeStyled = styled.div`
       border-radius: 50%;
       background-color: ${(props) => props.theme.switchColors[0]};
 
+      transition: 0.2s ease-in;
+
       position: absolute;
-      top: 3px;
+      top: 3px; 
       left: 3px;
-    }
+      ${(props) => {
+          if(props.themes === 1) {
+            return(
+              css`transform:translateX(21px);`
+            )
+          } else if (props.themes === 2){
+            return(
+              css`transform:translateX(44px);`
+            )
+          }
+        }
+      }
+    }     
   }
 `
