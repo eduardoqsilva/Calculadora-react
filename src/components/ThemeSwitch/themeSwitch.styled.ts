@@ -42,7 +42,7 @@ export const WrapperThemeStyled = styled.div<WrapperThemeStyledType>`
     height: 26px;
     border: none;
     border-radius: 15px;
-    background-color: ${(props) => props.theme.switchColors[1]};
+    background-color: ${(props) => props.theme.switchBackground};
 
     &::after {
       content: '';
@@ -51,7 +51,7 @@ export const WrapperThemeStyled = styled.div<WrapperThemeStyledType>`
       width: 20px;
       height: 20px;
       border-radius: 50%;
-      background-color: ${(props) => props.theme.switchColors[0]};
+      background-color: ${(props) => props.theme.contrastColor[0]};
 
       transition: 0.2s ease-in;
 
