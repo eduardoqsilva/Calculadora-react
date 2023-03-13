@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react"
 import { ThemeProvider } from "styled-components"
 import { Button } from "./components/Button"
+import { ButtonGrid } from "./components/ButtonGrid"
 import { CalculatorScreen } from "./components/CalculatorScreen"
 import { Header } from "./components/Header"
 import { HeaderThemeSwith } from "./components/ThemeSwitch"
 import { Wrapper } from "./components/Wrapper"
 
 import { dark } from "./styles/themes/darkTheme"
-
+import { buttonsConst } from "./Constants/consts"
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
     console.log(expression)
   }, [expression])
 
+
   return (
     <ThemeProvider theme={dark}>
       <Header>
@@ -33,7 +35,21 @@ function App() {
             updateTheme={updateTheme}
           />
           <CalculatorScreen text={'399981,96'}/>
-          <Button click={handleButtonClick} text="5"/>
+
+          <ButtonGrid>
+            <>
+              {buttonsConst.map((i, index) => {
+                return (
+                  <Button 
+                    key={index}
+                    click={handleButtonClick}
+                    text={i.text} 
+                    variation={i?.variation}
+                  />
+                )
+              })}
+            </>
+          </ButtonGrid>
         </Wrapper>
       </Header>
     </ThemeProvider>
