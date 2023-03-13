@@ -8,7 +8,7 @@ import { HeaderThemeSwith } from "./components/ThemeSwitch"
 import { Wrapper } from "./components/Wrapper"
 
 import { dark } from "./styles/themes/darkTheme"
-import { buttonsConst } from "./Constants/consts"
+import { buttonsConst } from "./Constants"
 
 function App() {
 
