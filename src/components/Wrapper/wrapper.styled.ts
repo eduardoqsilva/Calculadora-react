@@ -2,9 +2,10 @@ import styled from "styled-components";
 
 export const WrapperStyled = styled.main`
   width: 100%;
-  height: calc(100% - 8rem);
+  height: calc(100% - 12rem);
+  max-height: 700px;
   max-width: 600px;
-  background-color: gray;
+  /* background-color: gray; */
 
   padding: 1rem;
 
