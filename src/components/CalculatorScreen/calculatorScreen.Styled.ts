@@ -15,6 +15,7 @@ export const CalculatorScreenStyled = styled.div`
   font-weight: 500;
   color: ${(props) => props.theme.screenColors[1]};
   font-size: 3rem;
+  letter-spacing: 0.5rem;
 
   & div {
     max-width: 100%;
@@ -23,6 +24,7 @@ export const CalculatorScreenStyled = styled.div`
     overflow-y: hidden;
     user-select: none;
     scrollbar-width: none; /* Firefox */
+    white-space: nowrap;
 
   ::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Edge */
