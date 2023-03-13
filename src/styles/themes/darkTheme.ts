@@ -8,4 +8,5 @@ export const dark = {
   headerFontColor : '#fff', //text
   screenColors : ['#191f32', '#fdfdfd'], // background, text
   ButtonColors : ['#ece4dd', '#4a4b54', '#797477'], //background, text, shadow
+  ButtonGridBackground : '#252d44'
 }
