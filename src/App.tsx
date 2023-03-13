@@ -6,6 +6,7 @@ import { CalculatorScreen } from "./components/CalculatorScreen"
 import { Header } from "./components/Header"
 import { HeaderThemeSwith } from "./components/ThemeSwitch"
 import { Wrapper } from "./components/Wrapper"
+import { evaluate } from "mathjs"
 
 import { dark } from "./styles/themes/darkTheme"
 import { buttonsConst } from "./Constants"
@@ -17,13 +18,31 @@ function App() {
 
   const updateTheme = () => theme < 2 ? setTheme(prev => prev +1) : setTheme(0);
 
+
+  function result() {
+    return (evaluate(expression).toString())
+  }
   function handleButtonClick(value:string) {
-    setExpression((prev) => prev + value)
+    const text = value[0].replace('x', '*')
+    console.log(text)
+    switch(text) {
+      case '=':
+        setExpression(result())
+        break
+      case 'D':
+        setExpression((prev) => prev.substring(0, prev.length-1))
+        break
+      case 'R':
+        setExpression('')
+        break
+      default:
+        setExpression((prev) => prev + text)
+    }
   }
 
-  useEffect(() => {
-    console.log(expression)
-  }, [expression])
+  // useEffect(() => {
+  //   console.log(expression)
+  // }, [expression])
 
 
   return (
@@ -34,7 +53,7 @@ function App() {
             theme={theme}
             updateTheme={updateTheme}
           />
-          <CalculatorScreen text={'399981,96'}/>
+          <CalculatorScreen text={expression}/>
 
           <ButtonGrid>
             <>
