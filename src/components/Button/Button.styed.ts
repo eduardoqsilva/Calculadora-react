@@ -4,10 +4,10 @@ interface ButtonStyledType {
   variation?: 0 | 1 
 }
 export const ButtonStyled = styled.button<ButtonStyledType>`
-  /* width: 100%;
-  height: 100%; */
-  width: 100px;
-  height: 60px;
+  width: 100%;
+  height: 100%;
+  /* width: 100px;
+  height: 60px; */
 
   ${(props) => props.variation !== undefined 
     ? `background-color: ${props.theme.contrastColor[props.variation]};`
@@ -24,6 +24,7 @@ export const ButtonStyled = styled.button<ButtonStyledType>`
   font-family: 'Popins', sans-serif;
   font-weight: 600;
   font-size: 2rem;
+  user-select: none;
 
   box-shadow: 0px 5px 0px 0px ${(props) => props.variation !== undefined
     ? `${props.theme.ButtonShadow[props.variation]}`
