@@ -12,7 +12,7 @@ export const CalculatorScreenStyled = styled.div`
   padding: 1rem;
 
   font-family: 'Popins', sans-serif;
-  font-weight: 500;
+  font-weight: 700;
   color: ${(props) => props.theme.screenColors[1]};
   font-size: 3rem;
   letter-spacing: 0.5rem;
