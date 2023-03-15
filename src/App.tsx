@@ -9,6 +9,9 @@ import { Wrapper } from "./components/Wrapper"
 import { evaluate } from "mathjs"
 
 import { dark } from "./styles/themes/darkTheme"
+import { light } from "./styles/themes/lightTheme"
+import { alternative } from "./styles/themes/darkAlternative"
+
 import { buttonsConst } from "./Constants"
 
 function App() {
@@ -19,6 +22,7 @@ function App() {
   const updateTheme = () => {
     theme < 2 ? setTheme(prev => prev +1) : setTheme(0)
   };
+  const themes = [dark, light, alternative]
 
   function result() {
     return (evaluate(expression).toString())
@@ -53,14 +57,14 @@ function App() {
   },[theme])
 
   return (
-    <ThemeProvider theme={dark}>
+    <ThemeProvider theme={themes[theme]}>
       <Header>
         <Wrapper>
           <HeaderThemeSwith 
             theme={theme}
             updateTheme={updateTheme}
           />
-          <CalculatorScreen text={expression}/>
+          <CalculatorScreen text={expression.replaceAll('.', ',')}/>
 
           <ButtonGrid>
             <>
