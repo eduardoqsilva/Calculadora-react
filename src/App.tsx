@@ -16,8 +16,9 @@ function App() {
   const [theme, setTheme] = useState<number>(0)
   const [expression, setExpression] = useState('')
 
-  const updateTheme = () => theme < 2 ? setTheme(prev => prev +1) : setTheme(0);
-
+  const updateTheme = () => {
+    theme < 2 ? setTheme(prev => prev +1) : setTheme(0)
+  };
 
   function result() {
     return (evaluate(expression).toString())
@@ -39,11 +40,17 @@ function App() {
         setExpression((prev) => prev + text)
     }
   }
+ 
+  useEffect(() => {
+    const themeSaved = localStorage.getItem('theme') 
+    if(themeSaved !== null) {
+      setTheme(parseInt(themeSaved))
+    }
+  },[])
 
-  // useEffect(() => {
-  //   console.log(expression)
-  // }, [expression])
-
+  useEffect(() => {
+    localStorage.setItem('theme', theme.toString()) 
+  },[theme])
 
   return (
     <ThemeProvider theme={dark}>
