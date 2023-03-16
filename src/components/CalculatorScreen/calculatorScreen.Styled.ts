@@ -17,6 +17,8 @@ export const CalculatorScreenStyled = styled.div`
   font-size: 3rem;
   letter-spacing: 0.5rem;
 
+  position: relative;
+
   & div {
     max-width: 100%;
     max-height: 100%;
@@ -29,5 +31,28 @@ export const CalculatorScreenStyled = styled.div`
   ::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Edge */
   }
+  }
+`
+
+interface EastereggType {
+  render: boolean
+}
+export const Easteregg = styled.div<EastereggType>`
+
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+
+  ${(props) => props.render ? `display: flex;`: `display: none;`}
+  justify-content: center;
+  align-items: center;
+
+  & > video {
+    width: 100%;
   }
 `
